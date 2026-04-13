@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House of Sudan</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-meta">
+        <span>New York</span>
+        <span>Est. 2026</span>
+      </div>
+    </div>
+    <div class="site-title">
+      <a href="#" onclick="showSection(event,'home')">House of Sudan</a>
+    </div>
+    <div class="header-right">
+      <div class="issue-label">A Sudanese-American<br>Institution</div>
+    </div>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="nav-bar" id="desktop-menu">
+    <a href="#" onclick="showSection(event,'gazette')">Gazette</a>
+    <a href="#" onclick="showSection(event,'research')">Investment Research</a>
+    <a href="#" onclick="showSection(event,'policy')">Policy Research</a>
+    <a href="#" onclick="showSection(event,'azrag')">Azrag Studio</a>
+    <a href="#" onclick="showSection(event,'community')">Community Initiatives</a>
+  </nav>
+</header>
+
+<div class="mobile-overlay" id="mobile-overlay">
+  <a href="#" onclick="showSection(event,'gazette')">Gazette</a>
+  <a href="#" onclick="showSection(event,'research')">Investment Research</a>
+  <a href="#" onclick="showSection(event,'policy')">Policy Research</a>
+  <a href="#" onclick="showSection(event,'azrag')">Azrag Studio</a>
+  <a href="#" onclick="showSection(event,'community')">Community Initiatives</a>
+</div>
+
+<main id="main-content">
+  <div class="main-inner">
+
+    <!-- HOME -->
+    <section id="home" class="active">
+      <p class="lede">A disciplined, transnational network of Sudanese professionals — operating across finance, law, policy, and culture — focused on long-term capital formation, institutional influence, and national development.</p>
+
+      <div class="home-grid">
+        <div class="home-grid-item">
+          <div class="label">Mission</div>
+          <h3>Network &amp; Infrastructure</h3>
+          <p>Building a modern Sudanese elite infrastructure that bridges diaspora and homeland; producing enduring institutions, shaping markets, and influencing global narratives with precision and authority.</p>
+        </div>
+        <div class="home-grid-item">
+          <div class="label">Approach</div>
+          <h3>Selective Cohort Model</h3>
+          <p>Small groups of six to ten vetted members drawn from top universities and early-career roles in finance, law, policy, and technology. Density over breadth. Quality over reach.</p>
+        </div>
+        <div class="home-grid-item">
+          <div class="label">Capital</div>
+          <h3>Self-Sustaining by Design</h3>
+          <p>Internal sponsorship pipelines, member-driven capital circulation, and revenue generated across subsidiaries fund the infrastructure. No institutional grants. No charity model.</p>
+        </div>
+        <div class="home-grid-item">
+          <div class="label">Scope</div>
+          <h3>Transnational Platform</h3>
+          <p>Nodes in the Gulf, East Africa, and Canada. A single coordinated network capable of directing capital, talent, and policy attention toward Sudan's reconstruction.</p>
+        </div>
+      </div>
+
+      <div class="home-roadmap">
+        <div class="roadmap-label">Roadmap</div>
+        <div class="roadmap-items">
+          <div class="roadmap-item">
+            <div class="roadmap-phase">Now</div>
+            <div class="roadmap-text">Digital launch with coordinated Instagram presence. Founding cohort formation across New York. Curated professional events and private mixers.</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-phase">Near-term</div>
+            <div class="roadmap-text">Physical presence in New York City. A dedicated venue functioning as a private coordination hub. Investment Research evolves into a closed-loop capital allocator with proprietary deal flow for members.</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-phase">Long-term</div>
+            <div class="roadmap-text">Gazette positioned as the authoritative English-language source on Sudanese affairs, with syndication partnerships. Policy Research outputs submitted to think tanks and U.S. government advisory channels. Azrag Studio expanding across the Northeast and Canada.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAZETTE -->
+    <section id="gazette">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Subsidiary — I</div>
+          <div class="section-title">Gazette</div>
+        </div>
+        <div class="section-number">I</div>
+      </div>
+      <div class="section-body">
+        <p>The Gazette is being built as the authoritative English-language publication on Sudanese affairs — covering politics, economics, culture, and diaspora with the depth and precision those subjects deserve.</p>
+        <p>Current coverage in Western media treats Sudan episodically, in moments of crisis, without continuity or context. The Gazette operates on a different logic: sustained editorial attention, original analysis, and a long institutional memory. The audience is informed professionals, academics, policymakers, and diaspora communities who require more than wire dispatches.</p>
+        <p>The long-term ambition is syndication and partnership with established media organizations, positioning the Gazette as an indispensable source rather than an alternative one. Policy Research outputs and Investment Research theses will find their public-facing expression here.</p>
+      </div>
+    </section>
+
+    <!-- INVESTMENT RESEARCH -->
+    <section id="research">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Subsidiary — II</div>
+          <div class="section-title">Investment Research</div>
+        </div>
+        <div class="section-number">II</div>
+      </div>
+
+      <div class="mission-vision-grid">
+        <div class="mv-item">
+          <div class="mv-label">Mission</div>
+          <p>To produce rigorous, decision-oriented investment research through transaction memos, financial models, and valuation analysis — connecting capital discipline with long-term economic development thinking.</p>
+        </div>
+        <div class="mv-item">
+          <div class="mv-label">Vision</div>
+          <p>To become a credible platform where high-quality investment analysis informs future capital deployment, institutional collaboration, and Sudan-focused reconstruction and development initiatives.</p>
+        </div>
+      </div>
+
+      <div class="research-block">
+        <div class="research-block-label">Organizational Overview</div>
+        <div class="who-what-grid">
+          <div class="ww-item">
+            <div class="ww-label">Who</div>
+            <p>HOS Investment Research is an internal initiative of House of Sudan, led by a Sudan-focused analyst producing institutional-style investment research and transaction analysis.</p>
+          </div>
+          <div class="ww-item">
+            <div class="ww-label">What</div>
+            <p>Full transaction memoranda, financial models, valuation analyses, and capital structure assessments across public companies and sectors, alongside select policy-adjacent work tied to economic development and infrastructure.</p>
+          </div>
+          <div class="ww-item">
+            <div class="ww-label">When</div>
+            <p>A structured, deal-by-deal cadence. Each project completed end-to-end: from research and modeling to written memoranda, internal review, and public one-page summaries.</p>
+          </div>
+          <div class="ww-item">
+            <div class="ww-label">Where</div>
+            <p>Based in the United States, operating digitally, with analysis spanning U.S. and global companies, infrastructure, and Sudan-relevant development themes.</p>
+          </div>
+          <div class="ww-item" style="border-bottom:none;">
+            <div class="ww-label">Why</div>
+            <p>To build a disciplined body of investment work that connects policy thinking with real capital decision-making — establishing credibility, repeatability, and readiness for future Sudan-focused investment and advisory efforts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-section">
+        <div class="schedule-label">Work Schedule</div>
+
+        <div class="schedule-phase">
+          <div class="schedule-phase-header">
+            <div class="phase-num">Phase I</div>
+            <div class="phase-title">Foundation &amp; Deal 1 — Large-Cap</div>
+          </div>
+          <div class="schedule-items">
+            <div class="schedule-item"><div class="step-num">01</div><div class="step-text">Finalize mandate, folder structure, memo template, valuation checklist</div></div>
+            <div class="schedule-item"><div class="step-num">02</div><div class="step-text">Select large-cap company, define core decision question</div></div>
+            <div class="schedule-item"><div class="step-num">03</div><div class="step-text">Review 10-K, earnings call, investor presentation, recent news</div></div>
+            <div class="schedule-item"><div class="step-num">04</div><div class="step-text">Identify peer group, industry dynamics, precedent transactions</div></div>
+            <div class="schedule-item"><div class="step-num">05</div><div class="step-text">Build base 3-statement model with conservative assumptions</div></div>
+            <div class="schedule-item"><div class="step-num">06</div><div class="step-text">Run DCF intuition and trading comps, document assumptions</div></div>
+            <div class="schedule-item"><div class="step-num">07</div><div class="step-text">Draft full transaction memo rough narrative</div></div>
+            <div class="schedule-item"><div class="step-num">08</div><div class="step-text">Tighten logic, clarify risks, remove complexity</div></div>
+            <div class="schedule-item"><div class="step-num">09</div><div class="step-text">Stress test assumptions, document downside scenario</div></div>
+            <div class="schedule-item"><div class="step-num">10</div><div class="step-text">Complete final memo and model, archive Deal 1</div></div>
+            <div class="schedule-item"><div class="step-num">11</div><div class="step-text">Post 1-page Deal 1 summary on LinkedIn</div></div>
+          </div>
+        </div>
+
+        <div class="schedule-phase">
+          <div class="schedule-phase-header">
+            <div class="phase-num">Phase II</div>
+            <div class="phase-title">Deal 2 — Different Sector</div>
+          </div>
+          <div class="schedule-items">
+            <div class="schedule-item"><div class="step-num">12</div><div class="step-text">Select Deal 2, different sector, define decision question</div></div>
+            <div class="schedule-item"><div class="step-num">13</div><div class="step-text">Review filings, earnings, capital structure</div></div>
+            <div class="schedule-item"><div class="step-num">14</div><div class="step-text">Build initial model and comps</div></div>
+            <div class="schedule-item"><div class="step-num">15</div><div class="step-text">Analyze M&amp;A, divestiture, and financing options</div></div>
+            <div class="schedule-item"><div class="step-num">16</div><div class="step-text">Finalize valuation ranges and sensitivity</div></div>
+            <div class="schedule-item"><div class="step-num">17</div><div class="step-text">Draft transaction memo</div></div>
+            <div class="schedule-item"><div class="step-num">18</div><div class="step-text">Clarify key risks, assumptions, and decision triggers</div></div>
+            <div class="schedule-item"><div class="step-num">19</div><div class="step-text">Lock memo and model</div></div>
+            <div class="schedule-item"><div class="step-num">20</div><div class="step-text">Post 1-page Deal 2 summary on LinkedIn</div></div>
+          </div>
+        </div>
+
+        <div class="schedule-phase">
+          <div class="schedule-phase-header">
+            <div class="phase-num">Phase III</div>
+            <div class="phase-title">Policy Memo 1 &amp; Deal 3 — Mid-Cap</div>
+          </div>
+          <div class="schedule-items">
+            <div class="schedule-item"><div class="step-num">21</div><div class="step-text">Select policy topic for economic development</div></div>
+            <div class="schedule-item"><div class="step-num">22</div><div class="step-text">Background research and source collection</div></div>
+            <div class="schedule-item"><div class="step-num">23</div><div class="step-text">Draft 5–7 page policy memo</div></div>
+            <div class="schedule-item"><div class="step-num">24</div><div class="step-text">Tighten recommendations and assumptions</div></div>
+            <div class="schedule-item"><div class="step-num">25</div><div class="step-text">Archive completed policy memo</div></div>
+            <div class="schedule-item"><div class="step-num">26</div><div class="step-text">Choose Deal 3 mid-cap, capital structure focus</div></div>
+            <div class="schedule-item"><div class="step-num">27</div><div class="step-text">Review filings, credit profile, capital structure</div></div>
+            <div class="schedule-item"><div class="step-num">28</div><div class="step-text">Build initial model and valuation framework</div></div>
+            <div class="schedule-item"><div class="step-num">29</div><div class="step-text">Evaluate refinancing, equity issuance, and M&amp;A angles</div></div>
+            <div class="schedule-item"><div class="step-num">30</div><div class="step-text">Confirm valuation and downside case</div></div>
+            <div class="schedule-item"><div class="step-num">31</div><div class="step-text">Draft transaction memo</div></div>
+            <div class="schedule-item"><div class="step-num">32</div><div class="step-text">Improve clarity and conclusion</div></div>
+            <div class="schedule-item"><div class="step-num">33</div><div class="step-text">Complete memo and model</div></div>
+            <div class="schedule-item"><div class="step-num">34</div><div class="step-text">Post Deal 3 summary on LinkedIn</div></div>
+            <div class="schedule-item"><div class="step-num">35</div><div class="step-text">Write short private post-mortem</div></div>
+          </div>
+        </div>
+
+        <div class="schedule-phase">
+          <div class="schedule-phase-header">
+            <div class="phase-num">Phase IV</div>
+            <div class="phase-title">Deal 4 — Infrastructure / Energy-Adjacent</div>
+          </div>
+          <div class="schedule-items">
+            <div class="schedule-item"><div class="step-num">36</div><div class="step-text">Choose infrastructure energy-adjacent deal</div></div>
+            <div class="schedule-item"><div class="step-num">37</div><div class="step-text">Industry and company analysis</div></div>
+            <div class="schedule-item"><div class="step-num">38</div><div class="step-text">Build base model</div></div>
+            <div class="schedule-item"><div class="step-num">39</div><div class="step-text">Comps plus DCF</div></div>
+            <div class="schedule-item"><div class="step-num">40</div><div class="step-text">M&amp;A financing analysis</div></div>
+            <div class="schedule-item"><div class="step-num">41</div><div class="step-text">Draft full memo</div></div>
+            <div class="schedule-item"><div class="step-num">42</div><div class="step-text">Complete memo and model</div></div>
+            <div class="schedule-item"><div class="step-num">43</div><div class="step-text">Post 1-page Deal 4 summary on LinkedIn</div></div>
+          </div>
+        </div>
+
+        <div class="schedule-phase">
+          <div class="schedule-phase-header">
+            <div class="phase-num">Phase V</div>
+            <div class="phase-title">Policy Memo 2 &amp; Deal 5 — M&amp;A Focus</div>
+          </div>
+          <div class="schedule-items">
+            <div class="schedule-item"><div class="step-num">44</div><div class="step-text">Choose second policy memo topic</div></div>
+            <div class="schedule-item"><div class="step-num">45</div><div class="step-text">Sources, data, regulatory context</div></div>
+            <div class="schedule-item"><div class="step-num">46</div><div class="step-text">Draft memo</div></div>
+            <div class="schedule-item"><div class="step-num">47</div><div class="step-text">Tighten recommendations</div></div>
+            <div class="schedule-item"><div class="step-num">48</div><div class="step-text">Choose Deal 5, M&amp;A-heavy case</div></div>
+            <div class="schedule-item"><div class="step-num">49</div><div class="step-text">Filings and deal context</div></div>
+            <div class="schedule-item"><div class="step-num">50</div><div class="step-text">Build base model and comps</div></div>
+            <div class="schedule-item"><div class="step-num">51</div><div class="step-text">Final valuation</div></div>
+            <div class="schedule-item"><div class="step-num">52</div><div class="step-text">Draft transaction memo</div></div>
+            <div class="schedule-item"><div class="step-num">53</div><div class="step-text">Lock memo</div></div>
+            <div class="schedule-item"><div class="step-num">54</div><div class="step-text">Post summary</div></div>
+          </div>
+        </div>
+
+        <div class="schedule-phase">
+          <div class="schedule-phase-header">
+            <div class="phase-num">Phase VI</div>
+            <div class="phase-title">Deal 6 — Capstone</div>
+          </div>
+          <div class="schedule-items">
+            <div class="schedule-item"><div class="step-num">55</div><div class="step-text">Choose final capstone-quality deal</div></div>
+            <div class="schedule-item"><div class="step-num">56</div><div class="step-text">Deep dive research</div></div>
+            <div class="schedule-item"><div class="step-num">57</div><div class="step-text">Build final model</div></div>
+            <div class="schedule-item"><div class="step-num">58</div><div class="step-text">Draft capstone memo</div></div>
+            <div class="schedule-item"><div class="step-num">59</div><div class="step-text">Finalize Deal 6, review all work, assess readiness</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POLICY RESEARCH -->
+    <section id="policy">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Subsidiary — III</div>
+          <div class="section-title">Policy Research</div>
+        </div>
+        <div class="section-number">III</div>
+      </div>
+      <div class="section-body">
+        <p>Policy design and analysis focused on governance, economic development, and institutional reform — with a specific mandate around Sudan's reconstruction and the diaspora's role in shaping it.</p>
+        <p>Outputs are structured for submission to think tanks, fellowship programs, and U.S. government advisory channels. The goal is durable influence at the institutional level, not visibility for its own sake. A policy memo that reaches a deputy assistant secretary matters more than a widely-shared editorial.</p>
+        <p>The Lab also serves as a training ground for Sudanese professionals building careers in policy and public service — developing the analytical frameworks and institutional relationships required to operate effectively in Washington, Brussels, and Nairobi. Sudan's reconstruction will require technically capable, politically connected advocates in every room where decisions are made.</p>
+      </div>
+    </section>
+
+    <!-- AZRAG STUDIO -->
+    <section id="azrag">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Subsidiary — IV</div>
+          <div class="section-title">Azrag Studio</div>
+        </div>
+        <div class="section-number">IV</div>
+      </div>
+      <div class="section-body">
+        <p>Azrag Studio is the cultural and creative arm of House of Sudan — a vehicle for Sudanese identity, narrative, and visual expression built to operate at the intersection of art and commerce.</p>
+        <p>The studio produces limited-edition goods tied to cultural moments, with direct-to-consumer distribution across the Northeast and Canada. Drops are intentional, scarce, and anchored in Sudanese visual heritage. The aesthetic draws from historical textiles, manuscript traditions, and the rich material culture of the Nile Valley.</p>
+        <p>Beyond product, Azrag is a platform for Sudanese creative professionals — a space where the visual language of the diaspora is developed with rigor and ambition rather than nostalgia. The studio is being positioned as a long-term brand with institutional legitimacy, not a seasonal project.</p>
+      </div>
+    </section>
+
+    <!-- COMMUNITY INITIATIVES -->
+    <section id="community">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Subsidiary — V</div>
+          <div class="section-title">Community Initiatives</div>
+        </div>
+        <div class="section-number">V</div>
+      </div>
+      <div class="section-body">
+        <p>Programs and initiatives focused on building strong, capable, and connected Sudanese communities across the diaspora — with particular attention to the coordination gaps that leave Sudanese talent underrepresented in high-income fields outside medicine.</p>
+        <p>The immediate priority is mentorship infrastructure: connecting established Sudanese professionals with students and early-career individuals navigating finance, law, consulting, and technology. These relationships are routine in well-networked communities; for Sudanese Americans they remain largely informal and accidental.</p>
+        <p>Longer term, Community Initiatives will develop the pipeline feeding the broader House of Sudan network: identifying talented young Sudanese Americans early, building their institutional confidence, and connecting them to the professional and intellectual infrastructure that accelerates careers. The ambition is generational.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer id="site-footer">
+  <div class="footer-copy">© 2026 House of Sudan</div>
+  <div class="footer-links">
+    <a href="mailto:muhanad@houseofsudan.com">Email</a>
+    <a href="https://instagram.com/houseofsudan" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
