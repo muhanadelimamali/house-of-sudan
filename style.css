@@ -1,0 +1,48 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: "Times New Roman", Times, serif;
+font-style: italic;
+background: #fff;
+color: #111;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.btn-group {
+display: flex;
+flex-direction: row;
+gap: 16px;
+flex-wrap: wrap;
+justify-content: center;
+padding: 20px;
+}
+
+.btn {
+display: inline-block;
+padding: 12px 28px;
+border: 1.5px solid #111;
+color: #111;
+text-decoration: none;
+font-family: "Times New Roman", serif;
+font-style: italic;
+font-size: 1.05rem;
+transition: background 0.15s, color 0.15s;
+white-space: nowrap;
+}
+
+.btn:hover { background: #111; color: #fff; }
+
+@media (max-width: 480px) {
+.btn-group {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+.btn {
+    width: 240px;
+    text-align: center;
+}
+}
