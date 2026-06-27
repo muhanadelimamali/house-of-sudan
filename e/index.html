@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of Sudan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo" onclick="showSection('home')">House of Sudan</span>
+  <ul class="nav-links">
+    <li><button onclick="showSection('home')" data-section="home" class="active">Home</button></li>
+    <li><button onclick="showSection('about')" data-section="about">About</button></li>
+    <li><button onclick="showSection('research')" data-section="research">Research</button></li>
+    <li><button onclick="showSection('gazette')" data-section="gazette">Gazette</button></li>
+    <li><button onclick="showSection('network')" data-section="network">Network</button></li>
+    <li><button onclick="showSection('join')" data-section="join">Join</button></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button onclick="showSection('home');closeMobile()" data-section="home">Home</button>
+  <button onclick="showSection('about');closeMobile()" data-section="about">About</button>
+  <button onclick="showSection('research');closeMobile()" data-section="research">Research</button>
+  <button onclick="showSection('gazette');closeMobile()" data-section="gazette">Gazette</button>
+  <button onclick="showSection('network');closeMobile()" data-section="network">Network</button>
+  <button onclick="showSection('join');closeMobile()" data-section="join">Join</button>
+</div>
+
+<!-- HOME -->
+<section class="section active fade-in" id="home">
+
+  <div class="home-hero">
+    <h1>House of Sudan</h1>
+    <p>Connecting Sudan's next generation of leaders, researchers, entrepreneurs, and professionals.</p>
+    <div class="btn-group">
+      <button class="btn" onclick="showSection('join')">Join the Network</button>
+      <button class="btn" onclick="showSection('research')">Read Research</button>
+      <button class="btn" onclick="showSection('about')">Partner With Us</button>
+    </div>
+  </div>
+
+  <div class="home-mission">
+    <h2>Why HOS Exists</h2>
+    <p>Sudanese students are disconnected from one another. Sudanese professionals operate without shared infrastructure. Researchers work in isolation. Entrepreneurs lack networks. Diaspora organizations rarely cooperate.</p>
+    <p>The talent exists. The ambition exists. The institutions do not.</p>
+    <p class="statement">House of Sudan exists to build the institutions that connect them — across borders, disciplines, and generations.</p>
+  </div>
+
+  <div class="home-arms">
+    <h2>The Five Arms</h2>
+    <div class="arms-grid">
+      <div class="arm-card" onclick="showSection('research')">
+        <h3>Sudan Policy</h3>
+        <p>Policy research on governance, economics, conflict, and reconstruction.</p>
+      </div>
+      <div class="arm-card" onclick="showSection('research')">
+        <h3>Sudan Finance</h3>
+        <p>Investment research, financial literacy, and diaspora capital formation.</p>
+      </div>
+      <div class="arm-card" onclick="showSection('research')">
+        <h3>Sudan Law</h3>
+        <p>Legal research, resources for Sudanese law students, and a legal archive.</p>
+      </div>
+      <div class="arm-card" onclick="showSection('gazette')">
+        <h3>Sudan Gazette</h3>
+        <p>Editorial coverage of politics, business, culture, and diaspora life.</p>
+      </div>
+      <div class="arm-card" onclick="showSection('network')">
+        <h3>Sudan Network</h3>
+        <p>Professional directory, mentorship, opportunities, and member spotlights.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>House of Sudan — New York</span>
+    <span>houseofsudan.org</span>
+  </footer>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="page-inner">
+    <h2>About</h2>
+
+    <div class="page-block">
+      <h3>Origins</h3>
+      <p>House of Sudan emerged from a belief that Sudan's future requires institutions capable of connecting talent across borders. Not another student club. Not another diaspora association. An institution — built to last, built to matter.</p>
+      <p>Founded in New York, HOS is a Sudanese-American intellectual and leadership society focused on professional network-building, capital formation, and national development.</p>
+    </div>
+
+    <div class="page-block">
+      <h3>Ten-Year Vision</h3>
+      <p>The largest Sudanese professional network in North America. A leading diaspora think tank with recognized publications. Entrepreneurship initiatives. Fellowships. Scholarships. An annual conference.</p>
+      <p>The first institution people turn to when they want Sudanese talent, research, policy analysis, or diaspora leadership.</p>
+    </div>
+
+    <div class="page-block">
+      <h3>Values</h3>
+      <!-- <ul class="values-list">
+        <li>Knowledge</li>
+        <li>Capital</li>
+        <li>Nationhood</li>
+      </ul> -->
+    </div>
+
+    <div class="page-block">
+      <h3>Leadership</h3>
+      <p>House of Sudan was founded by Muhanad Elimamali, a Sudanese-American based in New York. Executive directors, research fellows, and a board are being assembled. If you are interested in a leadership role, apply through the network.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="page-inner">
+    <h2>Research</h2>
+
+    <!-- <div class="page-block">
+      <h3>Sudan Policy</h3>
+      <p>Policy analysis on governance, constitutional design, economic reform, conflict resolution, and post-war reconstruction. The think tank arm of HOS.</p>
+      <ul class="pubs-list">
+        <li><span class="pub-title">Sudan's Reconstruction Financing Framework</span><span class="pub-tag">Policy Brief</span></li>
+        <li><span class="pub-title">Federalism and the Future of Sudanese Governance</span><span class="pub-tag">Working Paper</span></li>
+        <li><span class="pub-title">Diaspora Political Participation: Models and Mechanisms</span><span class="pub-tag">Research Note</span></li>
+        <li><span class="pub-title">Security Sector Reform After Civil Conflict</span><span class="pub-tag">Policy Brief</span></li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <h3>Sudan Finance</h3>
+      <p>Investment research, financial education, and diaspora capital mobilization. Equity research modeled on professional analyst standards.</p>
+      <ul class="pubs-list">
+        <li><span class="pub-title">Agricultural Investment Opportunities in Sudan</span><span class="pub-tag">Sector Report</span></li>
+        <li><span class="pub-title">Diaspora Capital Mobilization: Mechanisms and Barriers</span><span class="pub-tag">Research Note</span></li>
+        <li><span class="pub-title">Sudan Banking Sector Overview</span><span class="pub-tag">Industry Brief</span></li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <h3>Sudan Law</h3>
+      <p>Constitutional law, human rights, international law, and business law. Resources for Sudanese law students and a growing legal archive.</p>
+      <ul class="pubs-list">
+        <li><span class="pub-title">International Accountability Mechanisms for Sudan</span><span class="pub-tag">Legal Brief</span></li>
+        <li><span class="pub-title">Guide to Sudanese-American Law Students</span><span class="pub-tag">Resource</span></li>
+      </ul>
+    </div> -->
+
+  </div>
+</section>
+
+<!-- GAZETTE -->
+<section class="section" id="gazette">
+  <div class="page-inner">
+    <h2>Sudan Gazette</h2>
+
+    <!-- <div class="page-block">
+      <p>The editorial arm of House of Sudan. Coverage of politics, business, culture, history, and diaspora life — written by and for Sudanese.</p>
+    </div>
+
+    <div class="page-block">
+      <h3>Latest</h3>
+      <ul class="pubs-list">
+        <li><span class="pub-title">The Architecture of a Post-War Sudan</span><span class="pub-tag">Politics</span></li>
+        <li><span class="pub-title">Sudanese Entrepreneurs Building Abroad</span><span class="pub-tag">Business</span></li>
+        <li><span class="pub-title">Language, Memory, and the Second Generation</span><span class="pub-tag">Culture</span></li>
+        <li><span class="pub-title">Why the Diaspora Needs Its Own Institutions</span><span class="pub-tag">Opinion</span></li>
+        <li><span class="pub-title">The Economic History of Khartoum</span><span class="pub-tag">History</span></li>
+      </ul>
+    </div>
+
+    <div class="page-block">
+      <h3>Categories</h3>
+      <ul class="pubs-list">
+        <li><span class="pub-title">Politics</span></li>
+        <li><span class="pub-title">Business</span></li>
+        <li><span class="pub-title">Culture</span></li>
+        <li><span class="pub-title">History</span></li>
+        <li><span class="pub-title">Diaspora</span></li>
+        <li><span class="pub-title">Opinion</span></li>
+      </ul>
+    </div> -->
+
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="section" id="network">
+  <div class="page-inner">
+    <h2>Sudan Network</h2>
+
+    <div class="page-block">
+      <p>The professional backbone of HOS. A directory of Sudanese students, professionals, researchers, entrepreneurs, lawyers, and engineers — across every city and every field.</p>
+    </div>
+
+    <div class="page-block">
+      <h3>Directory</h3>
+      <p>The member directory is available to verified HOS members. Join to access the full network.</p>
+      <div style="margin-top:24px;">
+        <button class="btn" onclick="showSection('join')">Join the Network</button>
+      </div>
+    </div>
+
+    <div class="page-block">
+      <h3>Mentorship</h3>
+      <p>HOS is building a structured mentorship program pairing Sudanese students with experienced professionals across law, finance, policy, and entrepreneurship. Applications open soon.</p>
+    </div>
+
+    <div class="page-block">
+      <h3>Opportunities</h3>
+      <p>Jobs, internships, scholarships, fellowships, and conferences — curated for the Sudanese professional community. Members receive direct access to the opportunities board.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section" id="join">
+  <div class="form-wrap">
+    <h2>Join HOS</h2>
+    <p class="subtitle">Applications are reviewed on a rolling basis.</p>
+
+    <form class="hos-form" id="hosForm">
+      <div class="form-row">
+        <input name="entry.107409179" placeholder="Full Name" required>
+        <input type="email" name="entry.1521758835" placeholder="Email Address" required>
+      </div>
+      <div class="form-row">
+        <input name="entry.200233177" placeholder="Phone Number">
+        <input name="entry.540087966" placeholder="Current City">
+      </div>
+      <div class="form-row">
+        <input name="entry.239315252" placeholder="University">
+        <input name="entry.1171419450" placeholder="Major">
+      </div>
+      <div class="form-row">
+        <input name="entry.360674661" placeholder="Graduation Year">
+        <input name="entry.1784611117" placeholder="LinkedIn URL">
+      </div>
+      <select name="entry.940117072">
+        <option value="">Area of Interest</option>
+        <option value="Policy">Policy</option>
+        <option value="Finance">Finance</option>
+        <option value="Law">Law</option>
+        <option value="Journalism">Journalism</option>
+        <option value="Entrepreneurship">Entrepreneurship</option>
+        <option value="Community Building">Community Building</option>
+      </select>
+      <textarea name="entry.1881296162" placeholder="Why do you want to join House of Sudan?"></textarea>
+    </form>
+
+    <div class="form-submit-row">
+      <button type="button" onclick="submitForm()">Submit Application</button>
+    </div>
+
+    <div id="success">
+      <p>Application received.<br><br>We will contact you shortly.</p>
+    </div>
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
