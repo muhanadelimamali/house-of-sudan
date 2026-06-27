@@ -178,7 +178,7 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: calc(100vh - 52px);
+  height: 100vh;
   padding: 100px 40px 80px;
 }
 
