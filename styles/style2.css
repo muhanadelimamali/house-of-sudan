@@ -59,6 +59,7 @@ button{
     font-family:"Times New Roman",serif;
     font-style:italic;
     font-size: 1.05rem;
+    color:#111;
 }
 
 button:hover{
