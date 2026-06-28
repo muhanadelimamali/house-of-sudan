@@ -11,15 +11,17 @@
     --bg:         #ffffff;
     --rule:       1px solid #111111;
     --font:       "Times New Roman", Times, serif;
-    --nav-h:      3.25rem;   /* 52px @ 16px base */
-    --max:        64rem;     /* 1024px content cap */
+    --nav-h:      3.25rem;
+    --foot-h:     3rem;
+    --max:        64rem;
     --ease:       cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── BASE ── */
-html {
+html, body {
+    height: 100%;
+    overflow: hidden;
     font-size: 16px;
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -132,23 +134,38 @@ nav {
 }
 .nav-drawer a:hover { background: var(--ink); color: var(--bg); }
 
-/* ── MAIN OFFSET ── */
-main { 
-    padding-top: var(--nav-h); 
-    padding-bottom: 3rem;
-    /* flex: 1; */
+/* ── MAIN SCROLL CONTAINER ── */
+main {
+    position: fixed;
+    top: var(--nav-h);
+    bottom: var(--foot-h);
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* ── SNAP SECTIONS ── */
+.hero,
+.mission,
+.arms,
+.values {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: calc(100vh - var(--nav-h) - var(--foot-h));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: var(--rule);
+    overflow: hidden;
 }
 
 /* ── HERO ── */
 .hero {
-    min-height: calc(100vh - var(--nav-h));
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    padding: 5vw 2rem;
-    border-bottom: var(--rule);
+    padding: 3rem 2rem;
 }
 
 .hero-eyebrow {
@@ -204,20 +221,20 @@ main {
 /* ── MISSION ── */
 .mission {
     max-width: var(--max);
+    width: 100%;
     margin: 0 auto;
-    padding: 5rem 2rem;
-    border-bottom: var(--rule);
+    padding: 3rem 2rem;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
+    align-self: center;
 }
 
 .mission-label {
     font-size: 0.75rem;
     letter-spacing: 0.14em;
     opacity: 0.45;
-    padding-top: 0.2rem;
 }
 
 .mission-body p {
@@ -240,16 +257,17 @@ main {
 /* ── ARMS ── */
 .arms {
     max-width: var(--max);
+    width: 100%;
     margin: 0 auto;
-    padding: 5rem 2rem;
-    border-bottom: var(--rule);
+    padding: 3rem 2rem;
+    align-self: center;
 }
 
 .arms-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     gap: 1rem;
 }
 
@@ -275,7 +293,7 @@ main {
 .arm-card {
     border-right: var(--rule);
     border-bottom: var(--rule);
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.25rem;
     text-decoration: none;
     color: var(--ink);
     display: block;
@@ -301,20 +319,21 @@ main {
 /* ── VALUES ── */
 .values {
     max-width: var(--max);
+    width: 100%;
     margin: 0 auto;
-    padding: 5rem 2rem;
-    border-bottom: var(--rule);
+    padding: 3rem 2rem;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
+    align-self: center;
+    border-bottom: none;
 }
 
 .values-label {
     font-size: 0.75rem;
     letter-spacing: 0.14em;
     opacity: 0.45;
-    padding-top: 0.35rem;
 }
 
 .values-list {
@@ -333,22 +352,19 @@ main {
 
 /* ── FOOTER ── */
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-}
-
-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    height: var(--foot-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
     background: var(--bg);
     border-top: var(--rule);
-    border-bottom: none;
     z-index: 100;
 }
 
@@ -370,10 +386,9 @@ footer {
     .btn { width: min(16rem, 90vw); text-align: center; margin: 0; border-bottom: none; }
     .btn:last-child { border-bottom: var(--rule); }
 
-    footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    footer { flex-direction: column; justify-content: center; gap: 0.2rem; text-align: center; }
 }
 
-/* ── REDUCE MOTION ── */
 @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
 }
