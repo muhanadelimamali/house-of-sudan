@@ -133,7 +133,11 @@ nav {
 .nav-drawer a:hover { background: var(--ink); color: var(--bg); }
 
 /* ── MAIN OFFSET ── */
-main { padding-top: var(--nav-h); }
+main { 
+    padding-top: var(--nav-h); 
+    padding-bottom: 3rem;
+    /* flex: 1; */
+}
 
 /* ── HERO ── */
 .hero {
@@ -329,13 +333,14 @@ main { padding-top: var(--nav-h); }
 
 /* ── FOOTER ── */
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-    opacity: 0.4;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: var(--rule);
+    border-bottom: none;
+    z-index: 100;
 }
 
 /* ── RESPONSIVE ── */

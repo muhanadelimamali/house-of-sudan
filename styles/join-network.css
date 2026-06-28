@@ -135,9 +135,10 @@ nav {
 /* ── LAYOUT ── */
 main {
     padding-top: var(--nav-h);
-    flex: 1;
+    /* flex: 1; */
     display: flex;
     flex-direction: column;
+    padding-bottom: 3rem;
 }
 
 /* ── PAGE HEADER ── */
@@ -320,14 +321,14 @@ textarea.error {
 
 /* ── FOOTER ── */
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
     border-top: var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 2rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-    color: var(--muted);
+    border-bottom: none;
+    z-index: 100;
 }
 
 /* ── RESPONSIVE ── */
