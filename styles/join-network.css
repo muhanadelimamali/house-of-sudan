@@ -160,7 +160,7 @@ main {
     width: 100%;
     margin: 0 auto;
     padding: 3rem 2rem 2rem;
-    /* border-bottom: var(--rule); */
+    border-bottom: var(--rule);
 }
 
 .page-header h1 {
@@ -186,7 +186,7 @@ main {
 
 /* ── FIELDSET GROUPS ── */
 .field-group {
-    border-top: var(--rule);
+    /* border-top: var(--rule); */
     padding-top: 1.75rem;
     margin-top: 1.75rem;
 }
