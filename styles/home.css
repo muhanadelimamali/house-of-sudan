@@ -333,6 +333,16 @@ main {
 
 /* ── FOOTER ── */
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    opacity: 0.4;
+}
+
+footer {
     position: fixed;
     bottom: 0;
     left: 0;

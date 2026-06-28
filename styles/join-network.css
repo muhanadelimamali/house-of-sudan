@@ -321,6 +321,17 @@ textarea.error {
 
 /* ── FOOTER ── */
 footer {
+    border-top: var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+}
+
+footer {
     position: fixed;
     bottom: 0;
     left: 0;
