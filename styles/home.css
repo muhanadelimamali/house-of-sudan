@@ -157,7 +157,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: var(--rule);
+    /* border-bottom: var(--rule); */
     overflow: hidden;
 }
 
