@@ -159,8 +159,7 @@ main {
     max-width: var(--max);
     width: 100%;
     margin: 0 auto;
-    padding: 0 2rem 3rem;
-    /* padding: 3rem 2rem 2rem; */
+    padding: 3rem 2rem 2rem;
     /* border-bottom: var(--rule); */
 }
 
