@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join — House of Sudan</title>
+    <link rel="stylesheet" href="https://houseofsudan.org/styles/join-network.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">House of Sudan</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Research</a></li>
+    <li><a href="#">Gazette</a></li>
+    <li><a href="#">Network</a></li>
+    <li><a href="join.html" class="active">Join</a></li>
+  </ul>
+  <button class="nav-toggle" id="toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="drawer">
+  <a href="index.html">Home</a>
+  <a href="#">About</a>
+  <a href="#">Research</a>
+  <a href="#">Gazette</a>
+  <a href="#">Network</a>
+  <a href="join.html">Join</a>
+</div>
+
+<main>
+
+  <div id="formSection">
+
+    <div class="page-header">
+      <h1>Join HOS</h1>
+      <p>Applications are reviewed on a rolling basis. We will follow up by email.</p>
+    </div>
+
+    <div class="form-wrap">
+
+      <form id="hosForm" novalidate>
+
+        <!-- Personal -->
+        <div class="field-group">
+          <span class="group-label">Personal</span>
+          <div class="field-row">
+            <input
+              id="fullName"
+              name="entry.107409179"
+              placeholder="Full Name"
+              autocomplete="name"
+              required>
+            <input
+              id="email"
+              type="email"
+              name="entry.1521758835"
+              placeholder="Email Address"
+              autocomplete="email"
+              required>
+          </div>
+          <div class="field-row">
+            <input
+              name="entry.200233177"
+              placeholder="Phone Number"
+              autocomplete="tel">
+            <input
+              name="entry.540087966"
+              placeholder="Current City"
+              autocomplete="address-level2">
+          </div>
+        </div>
+
+        <!-- Academic -->
+        <div class="field-group">
+          <span class="group-label">Academic</span>
+          <div class="field-row">
+            <input
+              name="entry.239315252"
+              placeholder="University">
+            <input
+              name="entry.1171419450"
+              placeholder="Major">
+          </div>
+          <div class="field-row">
+            <input
+              name="entry.360674661"
+              placeholder="Graduation Year">
+            <input
+              name="entry.1784611117"
+              placeholder="LinkedIn URL"
+              type="url">
+          </div>
+        </div>
+
+        <!-- Interest -->
+        <div class="field-group">
+          <span class="group-label">Interest</span>
+          <div class="field-single">
+            <select name="entry.940117072" id="interest">
+              <option value="">Area of Interest</option>
+              <option value="Policy">Policy</option>
+              <option value="Finance">Finance</option>
+              <option value="Law">Law</option>
+              <option value="Journalism">Journalism</option>
+              <option value="Entrepreneurship">Entrepreneurship</option>
+              <option value="Community Building">Community Building</option>
+            </select>
+          </div>
+          <div class="field-single">
+            <textarea
+              name="entry.1881296162"
+              placeholder="Why do you want to join House of Sudan?"></textarea>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button class="btn-submit" type="submit" id="submitBtn">Submit Application</button>
+          <span class="submit-note">Required: Full Name and Email.</span>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-panel" id="success">
+    <h2>Application received.</h2>
+    <p>Thank you. We will review your application<br>and follow up by email shortly.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span>House of Sudan</span>
+  <span>houseofsudan.org</span>
+</footer>
+
+<script src="https://houseofsudan.org/scripts/join-network.js"></script>
+
+</body>
+</html>

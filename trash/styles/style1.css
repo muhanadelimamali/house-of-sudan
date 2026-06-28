@@ -178,8 +178,7 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
-  padding: 100px 40px 80px;
+  height: 100vh; /* makes the section take up the full height of the viewport */
 }
 
 .home-hero h1 {

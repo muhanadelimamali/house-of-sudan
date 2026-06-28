@@ -3,21 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://houseofsudan.com/styles/style1.css">
+    <title>House of Sudan</title>
+    <link rel="stylesheet" href="https://houseofsudan.org/styles/home.css">
 </head>
 <body>
-    <section class="section active fade-in" id="home">
 
-    <div class="home-hero">
+<nav>
+    <a class="nav-logo" href="index.html">House of Sudan</a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Gazette</a></li>
+        <li><a href="#">Network</a></li>
+        <li><a href="join.html">Join</a></li>
+    </ul>
+    <button class="nav-toggle" id="toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="nav-drawer" id="drawer">
+    <a href="index.html">Home</a>
+    <a href="#">About</a>
+    <a href="#">Research</a>
+    <a href="#">Gazette</a>
+    <a href="#">Network</a>
+    <a href="join.html">Join</a>
+</div>
+
+<main>
+    <!-- HERO -->
+    <section class="hero">
+        <p class="hero-eyebrow">New York &mdash; Est. 2025</p>
         <h1>House of Sudan</h1>
-        <div class="btn-group">
-        <button class="btn" onclick="window.location.href='../join'">Join the Network</button>
-        <!-- <button class="btn" onclick="window.location.href='../research'">Read Research</button>
-        <button class="btn" onclick="window.location.href='../about'">Partner With Us</button> -->
+        <p class="hero-sub">Connecting Sudan's next generation of leaders, researchers, entrepreneurs, and professionals.</p>
+        <div class="btn-row">
+            <a class="btn" href="join.html">Join the Network</a>
+            <a class="btn" href="#">Read Research</a>
+            <a class="btn" href="#">Partner With Us</a>
         </div>
-    </div>
     </section>
+
+    <!-- MISSION -->
+    <section class="mission">
+        <p class="mission-label">Mission</p>
+        <div class="mission-body">
+            <p>Sudanese students are disconnected from one another. Professionals operate without shared infrastructure. Researchers work in isolation. Entrepreneurs lack networks. Diaspora organizations rarely cooperate.</p>
+            <p>The talent exists. The ambition exists. The institutions do not.</p>
+            <p class="mission-statement">House of Sudan exists to build the institutions that connect them — across borders, disciplines, and generations.</p>
+        </div>
+     </section>
+
+    <!-- ARMS -->
+    <section class="arms">
+        <div class="arms-header">
+            <h2>The Five Arms</h2>
+            <span>Policy &mdash; Finance &mdash; Law &mdash; Gazette &mdash; Network</span>
+        </div>
+        <div class="arms-grid">
+            <a class="arm-card" href="#">
+                <h3>Sudan Policy</h3>
+                <p>Policy research on governance, economics, conflict, and post-war reconstruction.</p>
+            </a>
+            <a class="arm-card" href="#">
+                <h3>Sudan Finance</h3>
+                <p>Investment research, financial literacy, and diaspora capital formation.</p>
+            </a>
+            <a class="arm-card" href="#">
+                <h3>Sudan Law</h3>
+                <p>Legal research, resources for Sudanese law students, and a growing legal archive.</p>
+            </a>
+            <a class="arm-card" href="#">
+                <h3>Sudan Gazette</h3>
+                <p>Editorial coverage of politics, business, culture, and diaspora life.</p>
+            </a>
+            <a class="arm-card" href="#">
+                <h3>Sudan Network</h3>
+                <p>Professional directory, mentorship, opportunities, and member spotlights.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values">
+        <p class="values-label">Values</p>
+        <ul class="values-list">
+            <li>Knowledge</li>
+            <li>Capital</li>
+            <li>Nationhood</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <span>House of Sudan</span>
+    <span>houseofsudan.org</span>
+</footer>
+
+<script src="https://houseofsudan.org/scripts/home.js"></script>
+
 </body>
-<script src="https://houseofsudan.com/scripts/script1.js"></script>
 </html>
