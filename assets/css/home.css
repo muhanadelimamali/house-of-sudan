@@ -1,0 +1,99 @@
+/* ── MAIN SCROLL CONTAINER ── */
+main {
+    position: fixed;
+    top: var(--nav-h);
+    bottom: var(--foot-h);
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* ── SNAP SECTIONS ── */
+.hero,
+.mission,
+.arms,
+.values {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.mission, .arms, .values {
+    max-height: 100%;
+    padding: 2rem;
+}
+
+.arms-grid,
+.values-list,
+.mission-body {
+    max-height: 100%;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.arms-grid::-webkit-scrollbar,
+.values-list::-webkit-scrollbar,
+.mission-body::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── HERO ── */
+.hero {
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: normal;
+    letter-spacing: 0.015em;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    max-width: 18ch;
+}
+
+.btn-row {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: var(--rule);
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--bg);
+    cursor: pointer;
+    margin: -1px 0 0 -1px;
+    transition: background 0.18s var(--ease), color 0.18s var(--ease);
+    white-space: nowrap;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn:first-child { margin-left: 0; }
+
+@media (max-width: 600px) {
+    .hero { 
+        padding: 1.5rem 1rem; 
+        justify-content: center;
+    }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .btn-row { flex-direction: column; align-items: center; width: 100%; }
+    .btn { width: 100%; max-width: 14rem; padding: 0.6rem 1rem; text-align: center; margin: 0; border-bottom: none; }
+    .btn:last-child { border-bottom: var(--rule); }
+}
