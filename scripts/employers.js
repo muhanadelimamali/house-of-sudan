@@ -2,28 +2,12 @@
 const toggle = document.getElementById('toggle');
 const drawer = document.getElementById('drawer');
 
-toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    drawer.classList.toggle('open');
-});
-
-
-// ── CUSTOM FILE UPLOAD UI HANDLER ──
-const flyerInput = document.getElementById('flyerInput');
-const flyerLabel = document.getElementById('flyerLabel');
-
-flyerInput.addEventListener('change', function() {
-    if (this.files && this.files.length > 0) {
-        // Update label with the chosen filename and change text color
-        flyerLabel.textContent = this.files[0].name;
-        flyerLabel.classList.add('has-file');
-    } else {
-        // Fallback to default state if cleared
-        flyerLabel.textContent = 'Application Flyer';
-        flyerLabel.classList.remove('has-file');
-    }
-});
-
+if (toggle && drawer) {
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        drawer.classList.toggle('open');
+    });
+}
 
 // ── GOOGLE FORM SUBMISSION HANDLER ──
 const FORM_ACTION = 'https://docs.google.com/forms/d/e/FAIpQLSfjQn0gJ984xynCVE46me8RarXDnYPiYKy2x8sRS5sM3yYr6w/formResponse';
@@ -64,19 +48,29 @@ document.getElementById('employerForm').addEventListener('submit', function(e) {
     btn.disabled = true;
     btn.textContent = 'Submitting…';
 
-    // Format the payload as application/x-www-form-urlencoded for Google Forms
+    // Format payload cleanly for standard Google Forms endpoints
     const data = new URLSearchParams(new FormData(this));
 
-    // Post to Google Forms backend
+    // Post data to Google backend
     fetch(FORM_ACTION, {
         method: 'POST',
         mode: 'no-cors',
         body: data
     })
-    .finally(() => {
-        // Smoothly transition interface to display the success state
+    .then(() => {
+        // Form hidden completely to avoid broken height calculations with scroll-snap
         document.getElementById('formSection').style.display = 'none';
-        document.getElementById('success').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Show success layout screen
+        const successPanel = document.getElementById('success');
+        successPanel.style.display = 'flex';
+        
+        // Safe document reset focus view
+        document.querySelector('main').scrollTop = 0;
+    })
+    .catch((err) => {
+        console.error('Submission failed tracking error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Submit';
     });
 });
