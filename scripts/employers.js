@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const orgName = form.querySelector('#orgName');
     const contactPerson = form.querySelector('#contactPerson');
     const contactEmail = form.querySelector('#contactEmail');
-    const oppType = form.querySelector('#oppType');
 
     let valid = true;
 
@@ -107,11 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
       contactEmail.classList.add('error');
       valid = false;
     }
-
-    // if (!oppType?.value.trim()) {
-    //   oppType.classList.add('error');
-    //   valid = false;
-    // }
 
     if (!valid) return;
 
