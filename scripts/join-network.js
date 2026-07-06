@@ -7,7 +7,7 @@ drawer.classList.toggle('open');
 });
 
 // Form submission
-const FORM_ACTION = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+const FORM_ACTION = 'https://docs.google.com/forms/d/e/15ZcaJ9w0fYSyq7y3hEFKBjipT_hnFYY7H_RHg9vcJcY/formResponse';
 
 document.getElementById('hosForm').addEventListener('submit', function(e) {
 e.preventDefault();
@@ -37,7 +37,7 @@ const btn = document.getElementById('submitBtn');
 btn.disabled = true;
 btn.textContent = 'Submitting…';
 
-const data = new FormData(this);
+const data = new URLSearchParams(new FormData(this));
 
 fetch(FORM_ACTION, {
     method: 'POST',
