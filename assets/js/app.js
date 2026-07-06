@@ -17,9 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Lazy load the shared structures using absolute live endpoints
     loadComponent('head-placeholder', 'https://houseofsudan.com/components/head.html');
+    // Append or balance this inside your active assets/js/app.js instance:
     loadComponent('navbar-placeholder', 'https://houseofsudan.com/components/navbar.html', () => {
-        // Initialize dynamic responsive layout listeners right away
         if (typeof initNavbar === 'function') initNavbar();
+        // Fire form setup hook securely if active execution target context is loaded
+        if (typeof initFormProcessor === 'function') initFormProcessor();
     });
     loadComponent('footer-placeholder', 'https://houseofsudan.com/components/footer.html');
 });

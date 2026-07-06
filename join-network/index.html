@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Hardcode critical global visuals to prevent layout popping -->
+    <link rel="stylesheet" href="https://houseofsudan.com/assets/css/global.css">
+    <link rel="stylesheet" href="https://houseofsudan.com/assets/css/forms.css">
+    
+    <!-- Unified scripts -->
+    <script src="https://houseofsudan.com/assets/js/navbar.js"></script>
+    <script src="https://houseofsudan.com/assets/js/forms.js"></script>
+    <script src="https://houseofsudan.com/assets/js/app.js"></script>
+    
+    <!-- Meta fields hardcoded directly on page for target social sharing validation -->
+    <title>Join House of Sudan</title>
+    <meta name="description" content="Submit your application to join the global House of Sudan professional and academic network.">
+    <div id="head-placeholder"></div>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <div id="formSection">
+            <div class="page-header">
+                <h1>Join HOS</h1>
+                <p>Applications are reviewed on a rolling basis. We will follow up by email.</p>
+            </div>
+
+            <div class="form-wrap">
+                <form id="hosForm" novalidate>
+                    <!-- Personal -->
+                    <div class="field-group">
+                        <span class="group-label">Personal*</span>
+                        <div class="field-row">
+                            <input
+                                id="fullName"
+                                name="entry.107409179"
+                                placeholder="Full Name"
+                                autocomplete="name"
+                                required>
+                            <input
+                                id="email"
+                                type="email"
+                                name="entry.1521758835"
+                                placeholder="Email Address"
+                                autocomplete="email"
+                                required>
+                        </div>
+                        <div class="field-row">
+                            <input
+                                name="entry.200233177"
+                                placeholder="Phone Number"
+                                autocomplete="tel">
+                            <input
+                                name="entry.540087966"
+                                placeholder="Current City"
+                                autocomplete="address-level2">
+                        </div>
+                    </div>
+
+                    <!-- Academic -->
+                    <div class="field-group">
+                        <span class="group-label">Academic</span>
+                        <div class="field-row">
+                            <input
+                                name="entry.239315252"
+                                placeholder="University">
+                            <input
+                                name="entry.1171419450"
+                                placeholder="Major">
+                        </div>
+                        <div class="field-row">
+                            <input
+                                name="entry.360674661"
+                                placeholder="Graduation Year">
+                            <input
+                                name="entry.1784611117"
+                                placeholder="LinkedIn URL"
+                                type="url">
+                        </div>
+                    </div>
+
+                    <div class="submit-row">
+                        <button class="btn-submit" type="submit" id="submitBtn">Submit Application</button>
+                        <span class="submit-note">*Required</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- SUCCESS PANEL -->
+        <div class="success-panel" id="success">
+            <h2>Application received.</h2>
+            <p>Thank you. We will review your application<br>and follow up by email shortly.</p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>
