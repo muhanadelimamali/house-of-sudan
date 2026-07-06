@@ -153,14 +153,36 @@ main {
 .values {
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    height: calc(100vh - var(--nav-h) - var(--foot-h));
+    height: 100%; /* Takes exactly 100% of the space inside <main> */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border-bottom: var(--rule); */
-    overflow: hidden;
+    overflow: hidden; /* Ensures absolutely no accidental internal layout shifts */
+    position: relative;
 }
 
+/* Add this to prevent layouts from spilling over on small heights */
+.mission, .arms, .values {
+    max-height: 100%;
+    padding: 2rem;
+}
+
+/* Allow the grid/lists to safely scroll inside their tight boxes if on an extremely short screen */
+.arms-grid,
+.values-list,
+.mission-body {
+    max-height: 100%;
+    overflow-y: auto;
+    /* Hide scrollbars for an editorial look while keeping scroll functionality */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.arms-grid::-webkit-scrollbar,
+.values-list::-webkit-scrollbar,
+.mission-body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
 /* ── HERO ── */
 .hero {
     align-items: center;
@@ -373,7 +395,7 @@ footer {
     .arms-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
 
@@ -384,6 +406,34 @@ footer {
 
     .btn-row { flex-direction: column; align-items: center; }
     .btn { width: min(16rem, 90vw); text-align: center; margin: 0; border-bottom: none; }
+    .btn:last-child { border-bottom: var(--rule); }
+
+    footer { flex-direction: column; justify-content: center; gap: 0.2rem; text-align: center; }
+} */
+
+@media (max-width: 600px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+
+    /* Tighten vertical padding so it stays within header/footer */
+    .hero,
+    .mission,
+    .arms,
+    .values { 
+        padding: 1.5rem 1rem; 
+        justify-content: center;
+    }
+
+    .mission,
+    .values { grid-template-columns: 1fr; gap: 1rem; }
+    .arms-grid { grid-template-columns: 1fr; }
+
+    /* Scale down hero typography to prevent pushing the buttons off-screen */
+    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero-sub { margin-bottom: 1.5rem; }
+
+    .btn-row { flex-direction: column; align-items: center; width: 100%; }
+    .btn { width: 100%; max-width: 14rem; padding: 0.6rem 1rem; text-align: center; margin: 0; border-bottom: none; }
     .btn:last-child { border-bottom: var(--rule); }
 
     footer { flex-direction: column; justify-content: center; gap: 0.2rem; text-align: center; }
