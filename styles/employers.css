@@ -44,6 +44,10 @@ nav {
     justify-content: space-between;
 }
 
+.nav-drawer.open { 
+    display: flex; 
+}
+
 .nav-logo {
     display: flex;
     align-items: center;
