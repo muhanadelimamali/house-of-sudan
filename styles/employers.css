@@ -270,8 +270,8 @@ main {
 
 /* ── FILE UPLOAD ── */
 .file-upload-wrap {
-    border: var(--rule);
-    border-top: none;
+    /* border: var(--rule);
+    border-top: none; */
     padding: 0.9rem 1rem;
     display: flex;
     align-items: center;
