@@ -118,7 +118,7 @@ nav {
     display: none;
     flex-direction: column;
 }
-.nav-drawer.open { display: flex; }
+.nav-drawer.open { display: flex; border-top: none; }
 .nav-drawer a {
     display: block;
     padding: 1.25rem 1.75rem;
