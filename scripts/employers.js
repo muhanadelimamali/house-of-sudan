@@ -1,56 +1,38 @@
-// Nav toggle
-const toggle = document.getElementById('toggle');
-const drawer = document.getElementById('drawer');
-toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    drawer.classList.toggle('open');
-});
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var fileData = e.parameter.fileData; // Base64 string
+    var fileName = e.parameter.fileName;
+    var fileUrl = "No file uploaded";
 
-// File label update
-document.getElementById('flyerInput').addEventListener('change', function() {
-const label = document.getElementById('flyerLabel');
-if (this.files && this.files[0]) {
-    label.textContent = this.files[0].name;
-    label.classList.add('has-file');
-} else {
-    label.textContent = 'Application Flyer';
-    label.classList.remove('has-file');
+    // Handle File Upload to Google Drive if present
+    if (fileData && fileName) {
+      var folder = DriveApp.getRootFolder(); // Or find a specific folder by ID
+      var contentType = fileData.substring(5, fileData.indexOf(';base64'));
+      var bytes = Utilities.base64Decode(fileData.substr(fileData.indexOf('base64,') + 7));
+      var blob = Utilities.newBlob(bytes, contentType, fileName);
+      var file = folder.createFile(blob);
+      fileUrl = file.getUrl();
+    }
+
+    // Append data rows matching your form fields
+    sheet.appendRow([
+      new Date(),
+      e.parameter.orgName,
+      e.parameter.contactPerson,
+      e.parameter.contactEmail,
+      e.parameter.contactPhone,
+      e.parameter.oppType,
+      e.parameter.description,
+      fileUrl,
+      e.parameter.appLink,
+      e.parameter.notes
+    ]);
+
+    return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
+                         .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", error: error.toString() }))
+                         .setMimeType(ContentService.MimeType.JSON);
+  }
 }
-});
-
-// Form submission
-const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSfjQn0gJ984xynCVE46me8RarXDnYPiYKy2x8sRS5sM3yYr6w/formResponse';
-
-document.getElementById('employerForm').addEventListener('submit', function(e) {
-e.preventDefault();
-
-this.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-
-let valid = true;
-const org   = this.querySelector('#orgName');
-const name  = this.querySelector('#contactPerson');
-const email = this.querySelector('#contactEmail');
-
-if (!org.value.trim())  { org.classList.add('error');  org.focus();  valid = false; }
-if (!name.value.trim()) { name.classList.add('error'); if (valid) name.focus(); valid = false; }
-if (!email.value.trim() || !email.validity.valid) {
-    email.classList.add('error');
-    if (valid) email.focus();
-    valid = false;
-}
-
-if (!valid) return;
-
-const btn = document.getElementById('submitBtn');
-btn.disabled = true;
-btn.textContent = 'Submitting…';
-
-fetch(FORM_ACTION, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: new FormData(this)
-}).finally(() => {
-    document.getElementById('formSection').style.display = 'none';
-    document.getElementById('success').style.display = 'flex';
-});
-});
