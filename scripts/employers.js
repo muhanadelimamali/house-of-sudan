@@ -108,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
       valid = false;
     }
 
-    if (!oppType?.value.trim()) {
-      oppType.classList.add('error');
-      valid = false;
-    }
+    // if (!oppType?.value.trim()) {
+    //   oppType.classList.add('error');
+    //   valid = false;
+    // }
 
     if (!valid) return;
 
