@@ -1,24 +1,21 @@
-/* ── RESET ── */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* ── TOKENS ── */
 :root {
-    --ink:        #111111;
-    --bg:         #ffffff;
-    --muted:      #666666;
-    --rule:       1px solid #111111;
-    --font:       "Times New Roman", Times, serif;
-    --nav-h:      3.25rem;
-    --foot-h:     3rem;
-    --max:        40rem; /* Kept focused tracking for forms readable */
-    --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+    --ink:    #111111;
+    --bg:     #ffffff;
+    --muted:  #666666;
+    --rule:   1px solid #111111;
+    --font:   "Times New Roman", Times, serif;
+    --nav-h:  3.25rem;
+    --foot-h: 3rem;
+    --max:    40rem;
+    --ease:   cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── BASE ── */
 html, body {
     height: 100%;
     overflow: hidden;
@@ -57,7 +54,7 @@ nav {
     color: var(--ink);
     white-space: nowrap;
     border-right: var(--rule);
-    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+    transition: background 0.18s var(--ease), color 0.18s var(--ease);
 }
 .nav-logo:hover { background: var(--ink); color: var(--bg); }
 
@@ -111,7 +108,7 @@ nav {
 .nav-drawer {
     position: fixed;
     inset: var(--nav-h) 0 0 0;
-    z-index: 190;
+    z-index: 9999;
     background: var(--bg);
     border-top: var(--rule);
     display: none;
@@ -131,28 +128,25 @@ nav {
 }
 .nav-drawer a:hover { background: var(--ink); color: var(--bg); }
 
-/* ── MAIN SCROLL CONTAINER ── */
+/* ── MAIN ── */
 main {
     position: fixed;
     top: var(--nav-h);
     bottom: var(--foot-h);
     left: 0;
     right: 0;
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
 }
 
 #formSection,
 .success-panel {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100%;
-    width: 100%;
+    min-height: calc(100vh - var(--nav-h) - var(--foot-h));
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
 }
 
 /* ── PAGE HEADER ── */
@@ -160,21 +154,21 @@ main {
     max-width: var(--max);
     width: 100%;
     margin: 0 auto;
-    padding: 3rem 2rem 1.5rem;
+    padding: 3rem 2rem 2rem;
+    border-bottom: var(--rule);
 }
 
 .page-header h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: normal;
     letter-spacing: 0.015em;
-    line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 0.65rem;
 }
 
 .page-header p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    opacity: 0.75;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
 }
 
 /* ── FORM WRAPPER ── */
@@ -187,53 +181,55 @@ main {
 
 /* ── FIELD GROUPS ── */
 .field-group {
-    margin-top: 1.5rem;
+    padding-top: 1.75rem;
+    margin-top: 1.75rem;
+}
+
+.field-group:first-of-type {
+    margin-top: 2rem;
 }
 
 .group-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 0.14em;
-    opacity: 0.45;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    display: block;
 }
 
-/* ── FIELD ROWS & STRUCTURAL GRIDS ── */
+/* ── FIELD ROWS ── */
 .field-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-top: var(--rule);
-    border-left: var(--rule);
-    border-right: var(--rule);
+    gap: 0;
+    border: var(--rule);
 }
 
-.field-row:last-of-type,
-.field-single {
-    border-bottom: var(--rule);
+.field-row + .field-row {
+    border-top: none;
 }
 
-.field-single {
-    border-top: var(--rule);
-    border-left: var(--rule);
-    border-right: var(--rule);
-}
-
-/* Combined stacked handling */
-.field-row + .field-row,
+/* first .field-single after a .field-row loses its top border via border-top:none —
+    but the FIRST .field-single that opens a group needs its top border.
+    We apply border-top:none only when preceded by another field element. */
 .field-row + .field-single,
 .field-single + .field-single,
 .field-single + .field-row {
     border-top: none;
 }
 
-/* ── INPUTS & FORM CONTROLS ── */
+.field-single {
+    border: var(--rule);
+}
+
+/* ── INPUTS ── */
 .field-row input,
 .field-single input,
 .field-single select,
 .field-single textarea {
     display: block;
     width: 100%;
-    padding: 1rem 1.25rem;
+    padding: 0.9rem 1rem;
     font-family: var(--font);
     font-style: italic;
     font-size: 0.92rem;
@@ -245,23 +241,23 @@ main {
     transition: background 0.15s var(--ease);
 }
 
-.field-row input:first-child {
-    border-right: var(--rule);
-}
-
 .field-row input:focus,
 .field-single input:focus,
 .field-single select:focus,
 .field-single textarea:focus {
-    background: #fdfdfd; /* Subtly strict anchor fill */
+    background: #f5f5f5;
+}
+
+.field-row input:first-child {
+    border-right: var(--rule);
 }
 
 .field-single textarea {
-    min-height: 8rem;
-    resize: none;
+    min-height: 7rem;
+    resize: vertical;
 }
 
-::placeholder { color: var(--ink); opacity: 0.35; }
+::placeholder { color: #999; opacity: 1; }
 
 .field-single select {
     appearance: none;
@@ -269,34 +265,83 @@ main {
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23111'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 1.25rem center;
+    background-position: right 1rem center;
     padding-right: 2.5rem;
 }
 
-/* ── ERROR STATES ── */
+/* ── FILE UPLOAD ── */
+.file-upload-wrap {
+    /* border: var(--rule);
+    border-top: none; */
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background 0.15s var(--ease);
+}
+.file-upload-wrap:hover { background: #f5f5f5; }
+
+.file-upload-wrap input[type="file"] {
+    display: none;
+}
+
+.file-upload-label {
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 0.92rem;
+    color: #999;
+    cursor: pointer;
+    flex: 1;
+    line-height: 1.4;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.file-upload-label.has-file {
+    color: var(--ink);
+}
+
+.file-upload-btn {
+    font-family: var(--font);
+    font-style: italic;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: none;
+    border: var(--rule);
+    padding: 0.3rem 0.75rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+.file-upload-btn:hover { background: var(--ink); color: var(--bg); }
+
+/* ── ERROR ── */
 input.error,
 select.error,
 textarea.error {
-    background: #fafafa !important;
-    box-shadow: inset 0 0 0 1px #111111; /* Clean structural indicator instead of distracting colors */
+    background: #fff8f8;
 }
 
-/* ── SUBMIT ROW ── */
+/* ── SUBMIT ── */
 .submit-row {
     margin-top: 2rem;
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    padding: 0.5rem 0;
 }
 
 .btn-submit {
-    display: inline-block;
     padding: 0.85rem 2.2rem;
     border: var(--rule);
     background: var(--bg);
     font-family: var(--font);
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     letter-spacing: 0.04em;
     color: var(--ink);
     cursor: pointer;
@@ -305,13 +350,15 @@ textarea.error {
 }
 .btn-submit:hover { background: var(--ink); color: var(--bg); }
 .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-submit:disabled:hover { background: var(--bg); color: var(--ink); }
 
 .submit-note {
-    font-size: 0.75rem;
-    opacity: 0.45;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
 }
 
-/* ── SUCCESS PANEL ── */
+/* ── SUCCESS ── */
 .success-panel {
     display: none;
     max-width: var(--max);
@@ -322,16 +369,15 @@ textarea.error {
 }
 
 .success-panel h2 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-size: 1.6rem;
     font-weight: normal;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .success-panel p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.8;
-    opacity: 0.75;
+    color: var(--muted);
 }
 
 /* ── FOOTER ── */
@@ -352,27 +398,10 @@ footer {
     z-index: 100;
 }
 
-/* ── RESPONSIVE TYPOGRAPHY & LAYOUTS ── */
+/* ── RESPONSIVE ── */
 @media (max-width: 600px) {
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
-
-    main {
-        scroll-snap-type: none; /* Soften layouts on micro mobile views */
-    }
-
-    #formSection,
-    .success-panel {
-        min-height: auto;
-        padding: 1.5rem 0;
-    }
-
-    .page-header {
-        padding: 1.5rem 1rem 1rem;
-    }
-    .form-wrap {
-        padding: 0 1rem 2rem;
-    }
 
     .field-row { grid-template-columns: 1fr; }
     .field-row input:first-child {
@@ -380,19 +409,11 @@ footer {
         border-bottom: var(--rule);
     }
 
-    .submit-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
-    }
-    .btn-submit {
-        width: 100%;
-        text-align: center;
-    }
+    .submit-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
 
     footer { flex-direction: column; justify-content: center; gap: 0.2rem; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
+    * { transition: none !important; }
 }
