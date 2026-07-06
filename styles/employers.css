@@ -213,7 +213,8 @@ main {
     but the FIRST .field-single that opens a group needs its top border.
     We apply border-top:none only when preceded by another field element. */
 .field-row + .field-single,
-.field-single + .field-single {
+.field-single + .field-single,
+.field-single + .field-row {
     border-top: none;
 }
 
