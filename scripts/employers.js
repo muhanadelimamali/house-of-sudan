@@ -26,7 +26,7 @@ flyerInput.addEventListener('change', function() {
 
 
 // ── GOOGLE FORM SUBMISSION HANDLER ──
-const FORM_ACTION = 'https://docs.google.com/forms/d/e/1DIZjv7lgBSGC_C7VljDh2YXdv4z-PTspq2K9FZojrn0/formResponse';
+const FORM_ACTION = 'https://docs.google.com/forms/d/e/FAIpQLSfjQn0gJ984xynCVE46me8RarXDnYPiYKy2x8sRS5sM3yYr6w/formResponse';
 
 document.getElementById('employerForm').addEventListener('submit', function(e) {
     e.preventDefault();
