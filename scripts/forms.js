@@ -15,6 +15,14 @@
    The surrounding page needs:
      - #formSection wrapping the form
      - #success as the confirmation panel
+
+   HOW IT SUBMITS:
+   The form POSTs directly into a hidden <iframe> — the same technique
+   Google's own embedded forms use. This avoids fetch()/CORS entirely,
+   so it isn't affected by cross-origin restrictions or the stricter
+   CSPs some in-app browsers (e.g. Instagram's built-in browser) apply
+   to fetch requests. It's a real, native form submission; the iframe
+   just keeps it from navigating the whole page away.
    ══════════════════════════════════════════════════════════════════ */
 
 window.HOS = window.HOS || {};
@@ -23,6 +31,7 @@ window.HOS = window.HOS || {};
     "use strict";
 
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var RESPONSE_TIMEOUT_MS = 9000;
 
     function initForm(formSelector) {
         var form = document.querySelector(formSelector);
@@ -34,6 +43,22 @@ window.HOS = window.HOS || {};
         var formSection = document.getElementById("formSection");
         var success = document.getElementById("success");
         var errorBox = ensureErrorBox(form);
+
+        var frameName = "hos-frame-" + Math.random().toString(36).slice(2);
+        var frame = createHiddenFrame(frameName);
+        var awaitingResponse = false;
+        var timeoutId = null;
+
+        // Fires once the hidden iframe finishes navigating — i.e. once
+        // Google has responded to the POST. Ignore the very first load,
+        // which is just the iframe's own initial blank page.
+        frame.addEventListener("load", function () {
+            if (!awaitingResponse) return;
+            awaitingResponse = false;
+            window.clearTimeout(timeoutId);
+            resetButton();
+            showSuccess(formSection, success);
+        });
 
         form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -51,11 +76,26 @@ window.HOS = window.HOS || {};
                 return;
             }
 
-            submit(form, formId, submitBtn, submitLabel)
-                .then(function () { showSuccess(formSection, success); })
-                .catch(function () {
-                    showError(errorBox, "Something went wrong sending your submission. Please check your connection and try again.");
-                });
+            form.action = "https://docs.google.com/forms/u/0/d/e/" + formId + "/formResponse";
+            form.method = "POST";
+            form.target = frameName;
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending…";
+            }
+
+            awaitingResponse = true;
+            timeoutId = window.setTimeout(function () {
+                if (!awaitingResponse) return;
+                awaitingResponse = false;
+                resetButton();
+                showError(errorBox, "This is taking longer than expected. Please check your connection and try again.");
+            }, RESPONSE_TIMEOUT_MS);
+
+            // form.submit() bypasses the "submit" event entirely, so this
+            // can't loop back into this same handler.
+            form.submit();
         });
 
         // clear the error state on a field the moment someone fixes it
@@ -64,6 +104,12 @@ window.HOS = window.HOS || {};
                 e.target.classList.remove("error");
             }
         });
+
+        function resetButton() {
+            if (!submitBtn) return;
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitLabel;
+        }
     }
 
     function validate(form) {
@@ -84,23 +130,15 @@ window.HOS = window.HOS || {};
         return firstInvalid;
     }
 
-    function submit(form, formId, submitBtn, submitLabel) {
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Sending…";
-        }
-
-        var action = "https://docs.google.com/forms/u/0/d/e/" + formId + "/formResponse";
-        var data = new FormData(form);
-
-        return fetch(action, { method: "POST", mode: "no-cors", body: data })
-            .then(function () { return true; })
-            .finally(function () {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = submitLabel;
-                }
-            });
+    function createHiddenFrame(name) {
+        var iframe = document.createElement("iframe");
+        iframe.name = name;
+        iframe.className = "hos-hidden-frame";
+        iframe.setAttribute("aria-hidden", "true");
+        iframe.setAttribute("tabindex", "-1");
+        iframe.setAttribute("title", "form submission target");
+        document.body.appendChild(iframe);
+        return iframe;
     }
 
     function showSuccess(formSection, success) {

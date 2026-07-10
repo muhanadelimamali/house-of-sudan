@@ -242,6 +242,18 @@ footer a:hover { opacity: 0.55; }
 /* Stagger children of a reveal group via inline --i set in HTML/JS if desired */
 [data-reveal] { transition-delay: calc(var(--i, 0) * 60ms); }
 
+/* ── HIDDEN SUBMIT FRAME ──
+   forms.js creates one of these per form to submit into, instead of
+   using fetch() — keeps Google Forms submissions working even in
+   in-app browsers with strict CSPs (e.g. Instagram's built-in browser). */
+.hos-hidden-frame {
+    display: none;
+    width: 0;
+    height: 0;
+    border: 0;
+    position: absolute;
+}
+
 /* ── FOCUS VISIBILITY ── (accessibility floor, keyboard users) */
 a:focus-visible,
 button:focus-visible,
