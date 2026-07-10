@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Join House of Sudan</title>
-    <link rel="stylesheet" href="https://houseofsudan.com/styles/join-network.css">
+    <meta name="description" content="Apply to join the House of Sudan network.">
+    <link rel="stylesheet" href="https://houseofsudan.com/styles/base.css">
+    <link rel="stylesheet" href="https://houseofsudan.com/styles/forms.css">
     <link rel="icon" href="https://houseofsudan.com/photos/logo.ico" type="image/x-icon">
 </head>
 <body>
@@ -20,7 +22,7 @@
     <li><a href="https://houseofsudan.com/join-network/" class="active">Join</a></li>
     <li><a href="https://houseofsudan.com/employers">Employers</a></li>
   </ul>
-  <button class="nav-toggle" id="toggle" aria-label="Toggle menu">
+  <button class="nav-toggle" id="toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="drawer">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -31,7 +33,7 @@
   <a href="#">Research</a>
   <a href="#">Gazette</a>
   <a href="#">Network</a> -->
-  <a href="https://houseofsudan.com/join-network/">Join</a>
+  <a href="https://houseofsudan.com/join-network/" class="active">Join</a>
   <a href="https://houseofsudan.com/employers">Employers</a>
 </div>
 
@@ -39,17 +41,23 @@
 
   <div id="formSection">
 
-    <div class="page-header">
+    <div class="page-header" data-reveal>
       <h1>Join HOS</h1>
       <p>Applications are reviewed on a rolling basis. We will follow up by email.</p>
     </div>
 
     <div class="form-wrap">
 
-      <form id="hosForm" novalidate>
+      <!--
+        data-form-id: replace REPLACE_WITH_GOOGLE_FORM_ID with the ID from
+        this form's own Google Forms URL, e.g.
+        https://docs.google.com/forms/d/e/1FAIpQLS.../viewform
+                                          ^^^^^^^^^ that part
+      -->
+      <form id="hosForm" data-form-id="1FAIpQLSfhwoeASLS-NSSt5NCF1Vf-rZjB2B48VF6KbEO3n-VOQtwewQ" novalidate>
 
         <!-- Personal -->
-        <div class="field-group">
+        <div class="field-group" data-reveal>
           <span class="group-label">Personal*</span>
           <div class="field-row">
             <input
@@ -70,7 +78,8 @@
             <input
               name="entry.200233177"
               placeholder="Phone Number"
-              autocomplete="tel">
+              autocomplete="tel"
+              inputmode="tel">
             <input
               name="entry.540087966"
               placeholder="Current City"
@@ -79,7 +88,7 @@
         </div>
 
         <!-- Academic -->
-        <div class="field-group">
+        <div class="field-group" data-reveal style="--i:1">
           <span class="group-label">Academic</span>
           <div class="field-row">
             <input
@@ -92,7 +101,8 @@
           <div class="field-row">
             <input
               name="entry.360674661"
-              placeholder="Graduation Year">
+              placeholder="Graduation Year"
+              inputmode="numeric">
             <input
               name="entry.1784611117"
               placeholder="LinkedIn URL"
@@ -121,7 +131,7 @@
           </div>
         </div> -->
 
-        <div class="submit-row">
+        <div class="submit-row" data-reveal style="--i:2">
           <button class="btn-submit" type="submit" id="submitBtn">Submit Application</button>
           <span class="submit-note">*Required</span>
         </div>
@@ -141,10 +151,11 @@
 </main>
 
 <footer>
-  <!-- <span>House of Sudan</span> -->
   <span><a href="https://www.instagram.com/houseofsudan" style="color: var(--ink); text-decoration: none;">@houseofsudan</a></span>
 </footer>
 
+<script src="https://houseofsudan.com/scripts/base.js"></script>
+<script src="https://houseofsudan.com/scripts/forms.js"></script>
 <script src="https://houseofsudan.com/scripts/join-network.js"></script>
 
 </body>
