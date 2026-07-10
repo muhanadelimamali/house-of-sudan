@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Post an Opportunity — House of Sudan</title>
+    <meta name="description" content="Post an internship, job, fellowship, or research opportunity for the House of Sudan network.">
+    <link rel="stylesheet" href="https://houseofsudan.com/styles/base.css">
+    <link rel="stylesheet" href="https://houseofsudan.com/styles/forms.css">
     <link rel="icon" href="https://houseofsudan.com/photos/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://houseofsudan.com/styles/employers.css">
 </head>
 <body>
 
@@ -16,7 +18,7 @@
     <li><a href="https://houseofsudan.com/join-network/">Join</a></li>
     <li><a href="https://houseofsudan.com/employers" class="active">Employers</a></li>
   </ul>
-  <button class="nav-toggle" id="toggle" aria-label="Toggle menu">
+  <button class="nav-toggle" id="toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="drawer">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -31,57 +33,63 @@
 
   <div id="formSection">
 
-    <div class="page-header">
+    <div class="page-header" data-reveal>
       <h1>Post an Opportunity</h1>
       <p>Submit an internship, job, fellowship, or research opportunity for the HOS network.</p>
     </div>
 
     <div class="form-wrap">
 
-      <form id="employerForm" novalidate>
+      <!--
+        data-form-id: replace REPLACE_WITH_GOOGLE_FORM_ID with the ID from
+        this form's own Google Forms URL, e.g.
+        https://docs.google.com/forms/d/e/1FAIpQLS.../viewform
+                                          ^^^^^^^^^ that part
+      -->
+      <form id="employerForm" data-form-id="REPLACE_WITH_GOOGLE_FORM_ID" novalidate>
 
-    <!-- ── UPDATED HTML INPUT NAMES ── -->
-    <div class="field-group">
-      <span class="group-label">Organization*</span>
-      <div class="field-row">
-        <input id="orgName" name="entry.716968245" placeholder="Organization Name" required>
-        <input id="contactPerson" name="entry.1727751173" placeholder="Contact Person" required>
-      </div>
-      <div class="field-row">
-        <input id="contactEmail" type="email" name="entry.1781133064" placeholder="Contact Email" autocomplete="email" required>
-        <input name="entry.1966441689" type="tel" placeholder="Contact Number" autocomplete="tel">
-      </div>
-    </div>
+        <!-- Organization -->
+        <div class="field-group" data-reveal>
+          <span class="group-label">Organization*</span>
+          <div class="field-row">
+            <input id="orgName" name="entry.716968245" placeholder="Organization Name" required>
+            <input id="contactPerson" name="entry.1727751173" placeholder="Contact Person" required>
+          </div>
+          <div class="field-row">
+            <input id="contactEmail" type="email" name="entry.1781133064" placeholder="Contact Email" autocomplete="email" required>
+            <input name="entry.1966441689" type="tel" placeholder="Contact Number" autocomplete="tel" inputmode="tel">
+          </div>
+        </div>
 
-    <!-- Opportunity -->
-    <div class="field-group">
-      <span class="group-label">Opportunity</span>
-      <div class="field-single">
-        <select id="oppType" name="entry.1366235579">
-          <option value="">Type of Opportunity</option>
-          <option value="Internship">Internship</option>
-          <option value="Job">Job</option>
-          <option value="Fellowship">Fellowship</option>
-          <option value="Research">Research</option>
-          <option value="Mentorship">Mentorship</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="field-single">
-        <textarea name="entry.152645886" placeholder="Brief Description"></textarea>
-      </div>
-    </div>
+        <!-- Opportunity -->
+        <div class="field-group" data-reveal style="--i:1">
+          <span class="group-label">Opportunity</span>
+          <div class="field-single">
+            <select id="oppType" name="entry.1366235579">
+              <option value="">Type of Opportunity</option>
+              <option value="Internship">Internship</option>
+              <option value="Job">Job</option>
+              <option value="Fellowship">Fellowship</option>
+              <option value="Research">Research</option>
+              <option value="Mentorship">Mentorship</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field-single">
+            <textarea name="entry.152645886" placeholder="Brief Description"></textarea>
+          </div>
+        </div>
 
-    <!-- Flyer + Links -->
-    <div class="field-group">
-      <span class="group-label">Links</span>
-      <div class="field-row">
-        <input name="entry.1440067898" type="url" placeholder="Application Link">
-        <input name="entry.184911540" placeholder="Additional Notes">
-      </div>
-    </div>
+        <!-- Links -->
+        <div class="field-group" data-reveal style="--i:2">
+          <span class="group-label">Links</span>
+          <div class="field-row">
+            <input name="entry.1440067898" type="url" placeholder="Application Link">
+            <input name="entry.184911540" placeholder="Additional Notes">
+          </div>
+        </div>
 
-        <div class="submit-row">
+        <div class="submit-row" data-reveal style="--i:3">
           <button class="btn-submit" type="submit" id="submitBtn">Submit</button>
           <span class="submit-note">*Required</span>
         </div>
@@ -103,7 +111,9 @@
   <span><a href="https://www.instagram.com/houseofsudan" style="color: var(--ink); text-decoration: none;">@houseofsudan</a></span>
 </footer>
 
-<script defer src="https://houseofsudan.com/scripts/employers.js"></script>
+<script src="https://houseofsudan.com/scripts/base.js"></script>
+<script src="https://houseofsudan.com/scripts/forms.js"></script>
+<script src="https://houseofsudan.com/scripts/employers.js"></script>
 
 </body>
 </html>
