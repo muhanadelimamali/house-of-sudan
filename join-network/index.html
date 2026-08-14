@@ -1,151 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join House of Sudan</title>
-    <link rel="stylesheet" href="https://houseofsudan.com/styles/join-network.css">
-    <link rel="icon" href="https://houseofsudan.com/photos/logo.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>House of Sudan | Join Network</title>
+<style>
+  :root {
+    --maroon: #800000;
+    --ink: #111111;
+    --border: #111111;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--ink);
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 640px;
+    width: 100%;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+    text-align: Left;
+  }
+
+  header h1 {
+    font-size: 1.9rem;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+  }
+
+  header p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .form-group {
+    margin-bottom: 26px;
+  }
+
+  label {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .help-text {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--maroon);
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-style: italic;
+    outline: none;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--maroon);
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--maroon);
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background: var(--maroon);
+    color: #fff;
+    font-size: 1rem;
+    padding: 14px;
+    border: 1px solid var(--maroon);
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: #fff;
+    color: var(--maroon);
+  }
+
+  #success-message {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    border: 1px solid var(--border);
+  }
+
+  #success-message h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--maroon);
+    margin-bottom: 12px;
+  }
+
+  #success-message p {
+    font-size: 0.95rem;
+  }
+</style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="https://houseofsudan.com/home/">House of Sudan</a>
-  <ul class="nav-links">
-    <li><a href="https://houseofsudan.com/home/">Home</a></li>
-    <!-- <li><a href="#">About</a></li>
-    <li><a href="#">Research</a></li>
-    <li><a href="#">Gazette</a></li>
-    <li><a href="#">Network</a></li> -->
-    <li><a href="https://houseofsudan.com/join-network/" class="active">Join</a></li>
-    <li><a href="https://houseofsudan.com/employers">Employers</a></li>
-  </ul>
-  <button class="nav-toggle" id="toggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<div class="container">
+  <header>
+    <h1>House of Sudan</h1>
+  </header>
 
-<div class="nav-drawer" id="drawer">
-  <a href="https://houseofsudan.com/home/">Home</a>
-  <!-- <a href="#">About</a>
-  <a href="#">Research</a>
-  <a href="#">Gazette</a>
-  <a href="#">Network</a> -->
-  <a href="https://houseofsudan.com/join-network/">Join</a>
-  <a href="https://houseofsudan.com/employers">Employers</a>
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLScJXW2I-_n_6UgbvIu2cY3axDhZjX9gBm5WWvBNxd3C1C2tVA/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        id="hosForm"
+        onsubmit="handleFormSubmit()">
+
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="entry.170357559" required placeholder="First & Last Name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="entry.1330400406" required placeholder="name@example.com">
+    </div>
+
+    <div class="form-group">
+      <label for="linkedin">LinkedIn Profile URL</label>
+      <span class="help-text">Highly recommended for mapping professional networks</span>
+      <input type="url" id="linkedin" name="entry.2066607670" placeholder="https://linkedin.com/in/username">
+    </div>
+
+    <div class="form-group">
+      <label for="location">Current Location *</label>
+      <select id="location" name="entry.429259036" required>
+        <option value="" disabled selected>Select location...</option>
+        <option value="NYC - Manhattan">NYC - Manhattan</option>
+        <option value="NYC - Brooklyn">NYC - Brooklyn</option>
+        <option value="NYC - Queens / Bronx / Staten Island">NYC - Queens / Bronx / Staten Island</option>
+        <option value="Tri-State Area (NJ, CT, Upstate NY)">Tri-State Area (NJ, CT, Upstate NY)</option>
+        <option value="Elsewhere in the US">Elsewhere in the US</option>
+        <option value="International">International</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="track">Primary Track *</label>
+      <select id="track" name="entry.1674987667" required>
+        <option value="" disabled selected>Select primary status...</option>
+        <option value="Undergraduate Student">Undergraduate Student</option>
+        <option value="Graduate / Professional Student">Graduate / Professional Student</option>
+        <option value="Early / Mid-Career Professional (1–5 yrs experience)">Early / Mid-Career Professional (1–5 yrs experience)</option>
+        <option value="Experienced Professional / Executive (5+ yrs experience)">Experienced Professional / Executive (5+ yrs experience)</option>
+        <option value="Entrepreneur / Creative / Independent Operator">Entrepreneur / Creative / Independent Operator</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="affiliation">Institutional / Organizational Affiliation *</label>
+      <span class="help-text">University, Employer, Company, or Organization (e.g., Brooklyn College, Columbia, Jefferies, UN)</span>
+      <input type="text" id="affiliation" name="entry.2043774011" required placeholder="Company or University Name">
+    </div>
+
+    <div class="form-group">
+      <label for="industry">Primary Industry / Field of Study *</label>
+      <select id="industry" name="entry.305927356" required>
+        <option value="" disabled selected>Select industry...</option>
+        <option value="Finance / Investment Banking / Private Equity">Finance / Investment Banking / Private Equity</option>
+        <option value="Technology / Software / Data">Technology / Software / Data</option>
+        <option value="Law / Legal Services / Public Policy / Government">Law / Legal Services / Public Policy / Government</option>
+        <option value="Medicine / Healthcare / Life Sciences">Medicine / Healthcare / Life Sciences</option>
+        <option value="Arts / Design / Fashion / Media / Journalism">Arts / Design / Fashion / Media / Journalism</option>
+        <option value="Engineering / Architecture / Built Environment">Engineering / Architecture / Built Environment</option>
+        <option value="Education / Academia / Research">Education / Academia / Research</option>
+        <option value="Business Operations / Consulting / Marketing">Business Operations / Consulting / Marketing</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Which specialized HOS initiatives align with your interests or expertise?</label>
+      <div class="checkbox-group">
+        <label class="option-label">
+          <input type="checkbox" name="entry.710717479" value="Sudan Finance (Capital markets, investment research, financial literacy)">
+          Sudan Finance (Capital markets, investment research, financial literacy)
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.710717479" value="HOS Investment Initiative (Quantitative &amp; fundamental research, 10-day investment cycles)">
+          HOS Investment Initiative (Quantitative &amp; fundamental research)
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.710717479" value="Sudan Policy (Geopolitical research, public affairs, policy memos)">
+          Sudan Policy (Geopolitical research, public affairs, policy memos)
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.710717479" value="Sudan Gazette (Media, long-form writing, journalism, commentary)">
+          Sudan Gazette (Media, long-form writing, journalism, commentary)
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.710717479" value="Sudan Book Club (Intellectual dialogue, book discussions, community debates)">
+          Sudan Book Club (Intellectual dialogue, book discussions)
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.710717479" value="Azrag Studios (Consumer brand, modernizing Sudanese heritage, design, fashion concepts)">
+          Azrag Studios (Consumer brand, modernizing Sudanese heritage)
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>How would you like to engage with House of Sudan right now?</label>
+      <div class="checkbox-group">
+        <label class="option-label">
+          <input type="checkbox" name="entry.991286208" value="Attendee / Member: I want to attend events, network, and stay updated.">
+          Attendee / Member: Attend events, network, and stay updated.
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.991286208" value="Contributor / Analyst: I want to contribute research, writing, or design work to a specific arm.">
+          Contributor / Analyst: Contribute research, writing, or design.
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.991286208" value="Leadership / Core Builder: I am interested in helping launch, manage, or lead an arm or HOS operations.">
+          Leadership / Core Builder: Help launch, manage, or lead an arm.
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.991286208" value="Mentor / Advisor: I am an experienced professional willing to mentor students or young professionals.">
+          Mentor / Advisor: Mentor students or young professionals.
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="skills">What skills, perspectives, or project ideas can you bring to the network?</label>
+      <textarea id="skills" name="entry.1418636768" rows="4" placeholder="Briefly share your background, tools, or specific initiatives you'd like to support..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="source">How did you hear about House of Sudan?</label>
+      <select id="source" name="entry.1419071073">
+        <option value="" disabled selected>Select an option...</option>
+        <option value="Sudanese Student Association (SSA)">Sudanese Student Association (SSA)</option>
+        <option value="LinkedIn / Professional Network">LinkedIn / Professional Network</option>
+        <option value="Word of Mouth / Friend">Word of Mouth / Friend</option>
+        <option value="Social Media (Instagram / X)">Social Media (Instagram / X)</option>
+        <option value="Direct Outreach">Direct Outreach</option>
+      </select>
+    </div>
+
+    <button type="submit">Submit to HOS Network</button>
+  </form>
+
+  <div id="success-message">
+    <h2>Welcome to the House of Sudan Network.</h2>
+    <p>Your details have been submitted successfully. We will be in touch regarding upcoming initiatives and gatherings.</p>
+  </div>
 </div>
 
-<main>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showConfirmation(); }"></iframe>
 
-  <div id="formSection">
+<script>
+  const STORAGE_KEY = 'hos_join_network_submitted';
+  let submitted = false;
 
-    <div class="page-header">
-      <h1>Join HOS</h1>
-      <p>Applications are reviewed on a rolling basis. We will follow up by email.</p>
-    </div>
+  function handleFormSubmit() {
+    submitted = true;
+    try { localStorage.setItem(STORAGE_KEY, 'true'); } catch (e) {}
+  }
 
-    <div class="form-wrap">
+  function showConfirmation() {
+    document.getElementById('hosForm').style.display = 'none';
+    document.getElementById('success-message').style.display = 'block';
+  }
 
-      <form id="hosForm" novalidate>
-
-        <!-- Personal -->
-        <div class="field-group">
-          <span class="group-label">Personal*</span>
-          <div class="field-row">
-            <input
-              id="fullName"
-              name="entry.107409179"
-              placeholder="Full Name"
-              autocomplete="name"
-              required>
-            <input
-              id="email"
-              type="email"
-              name="entry.1521758835"
-              placeholder="Email Address"
-              autocomplete="email"
-              required>
-          </div>
-          <div class="field-row">
-            <input
-              name="entry.200233177"
-              placeholder="Phone Number"
-              autocomplete="tel">
-            <input
-              name="entry.540087966"
-              placeholder="Current City"
-              autocomplete="address-level2">
-          </div>
-        </div>
-
-        <!-- Academic -->
-        <div class="field-group">
-          <span class="group-label">Academic</span>
-          <div class="field-row">
-            <input
-              name="entry.239315252"
-              placeholder="University">
-            <input
-              name="entry.1171419450"
-              placeholder="Major">
-          </div>
-          <div class="field-row">
-            <input
-              name="entry.360674661"
-              placeholder="Graduation Year">
-            <input
-              name="entry.1784611117"
-              placeholder="LinkedIn URL"
-              type="url">
-          </div>
-        </div>
-
-        <!-- Interest -->
-        <!-- <div class="field-group">
-          <span class="group-label">Interest</span>
-          <div class="field-single">
-            <select name="entry.940117072" id="interest">
-              <option value="">Area of Interest</option>
-              <option value="Policy">Policy</option>
-              <option value="Finance">Finance</option>
-              <option value="Law">Law</option>
-              <option value="Journalism">Journalism</option>
-              <option value="Entrepreneurship">Entrepreneurship</option>
-              <option value="Community Building">Community Building</option>
-            </select>
-          </div>
-          <div class="field-single">
-            <textarea
-              name="entry.1881296162"
-              placeholder="Why do you want to join House of Sudan?"></textarea>
-          </div>
-        </div> -->
-
-        <div class="submit-row">
-          <button class="btn-submit" type="submit" id="submitBtn">Submit Application</button>
-          <span class="submit-note">*Required</span>
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-
-  <!-- SUCCESS -->
-  <div class="success-panel" id="success">
-    <h2>Application received.</h2>
-    <p>Thank you. We will review your application<br>and follow up by email shortly.</p>
-  </div>
-
-</main>
-
-<footer>
-  <!-- <span>House of Sudan</span> -->
-  <span><a href="https://www.instagram.com/houseofsudan" style="color: var(--ink); text-decoration: none;">@houseofsudan</a></span>
-</footer>
-
-<script src="https://houseofsudan.com/scripts/join-network.js"></script>
+  (function checkExistingSubmission() {
+    try {
+      if (localStorage.getItem(STORAGE_KEY) === 'true') {
+        showConfirmation();
+      }
+    } catch (e) {}
+  })();
+</script>
 
 </body>
 </html>
