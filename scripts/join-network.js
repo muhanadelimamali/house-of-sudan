@@ -1,52 +1,20 @@
-// Nav toggle
-const toggle = document.getElementById('toggle');
-const drawer = document.getElementById('drawer');
-toggle.addEventListener('click', () => {
-toggle.classList.toggle('open');
-drawer.classList.toggle('open');
-});
+const STORAGE_KEY = 'hos_join_network_submitted';
+let submitted = false;
 
-// Form submission
-const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLScpwZCyKOVgasfMJ5DYPqML84PgqqlRfU4f4HeGlcAUKsEAOA/formResponse';
-
-document.getElementById('hosForm').addEventListener('submit', function(e) {
-e.preventDefault();
-
-// Clear previous errors
-this.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-
-// Validate required fields
-let valid = true;
-const name  = this.querySelector('#fullName');
-const email = this.querySelector('#email');
-
-if (!name.value.trim()) {
-    name.classList.add('error');
-    name.focus();
-    valid = false;
-}
-if (!email.value.trim() || !email.validity.valid) {
-    email.classList.add('error');
-    if (valid) email.focus();
-    valid = false;
+function handleFormSubmit() {
+submitted = true;
+try { localStorage.setItem(STORAGE_KEY, 'true'); } catch (e) {}
 }
 
-if (!valid) return;
+function showConfirmation() {
+document.getElementById('hosForm').style.display = 'none';
+document.getElementById('success-message').style.display = 'block';
+}
 
-const btn = document.getElementById('submitBtn');
-btn.disabled = true;
-btn.textContent = 'Submitting…';
-
-const data = new URLSearchParams(new FormData(this));
-
-fetch(FORM_ACTION, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: data
-})
-.finally(() => {
-    document.getElementById('formSection').style.display = 'none';
-    document.getElementById('success').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-});
+(function checkExistingSubmission() {
+try {
+    if (localStorage.getItem(STORAGE_KEY) === 'true') {
+    showConfirmation();
+    }
+} catch (e) {}
+})();
