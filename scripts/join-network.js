@@ -13,6 +13,11 @@ document.getElementById('success-message').style.display = 'block';
 
 (function checkExistingSubmission() {
 try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('reset') === 'true') {
+    localStorage.removeItem(STORAGE_KEY);
+    return;
+    }
     if (localStorage.getItem(STORAGE_KEY) === 'true') {
     showConfirmation();
     }
